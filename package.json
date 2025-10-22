@@ -1,0 +1,11 @@
+{
+  "name": "sharevolume",
+  "version": "1.0.0",
+  "description": "Your assigned company: Booking Holdings (BKNG), CIK 0001075531.\n\nFetch https://data.sec.gov/api/xbrl/companyconcept/CIK0001075531/dei/EntityCommonStockSharesOutstanding.json (set a descriptive User-Agent per SEC guidance).\nRead `.entityName`. Filter `.units.shares[]` for entries whose `fy` > \"2020\" and\nincludes a numeric `val`.\nSave `data.json` with this structure:\n`{\"entityName\": \"Booking Holdings\", \"max\": {\"val\": ..., \"fy\": ...}, \"min\": {\"val\": ..., \"fy\": ...}}`\nwhere `max` and `min` refer to the highest and lowest `.val`. Break ties however you like.\n\nRender a visually appealing `index.html` where:\n- `<title>` and `<h1>` must include the live `entityName`.\n- The max/min figures are clearly marked with these IDs:\n  `share-entity-name`,\n  `share-max-value`, `share-max-fy`,\n  `share-min-value`, `share-min-fy`.\n\nIf the page is opened as `index.html?CIK=0001018724` (or any other 10-digit CIK),\n`fetch()` from the SEC endpoint for that CIK using any proxy, e.g. AIPipe,\nreplace every ID listed above and the title and H1 without reloading the page.\n\nAlso commit the attachment uid.txt as-is.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000"
+  },
+  "author": "23f3002017@ds.study.iitm.ac.in",
+  "license": "MIT"
+}
